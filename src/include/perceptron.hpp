@@ -18,21 +18,22 @@
 class Perceptron {
   private:
     std::vector<double> weights;
-    double bias;
+    double bias = -1;
+    const double learning_rate = 0.1;
 
   public:
     /**
      * @brief Constructs a perceptron with weights and a bias
-     * @param weights The weights for each input
-     * @param bias The bias for this perceptron
+     * @param n_weights Number of weights
      */
-    Perceptron(std::vector<double> weights, double bias);
+    Perceptron(const int &n_weights);
     /**
      * @brief Method to get an output given inputs
      * @param inputs Inputs for this perceptron
      * @return bool: Output given the inputs
      */
-    bool output(std::vector<bool> inputs);
+    bool output(const std::vector<bool> &inputs);
+    void update(const std::vector<bool> &inputs, const bool &target);
     /**
      * @brief Prints the perceptron attributes
      */
