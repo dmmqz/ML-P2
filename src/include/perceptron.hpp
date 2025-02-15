@@ -20,6 +20,7 @@ class Perceptron {
     std::vector<double> weights;
     double bias = -1;
     const double learning_rate = 0.1;
+    std::vector<double> errors;
 
   public:
     /**
@@ -34,6 +35,7 @@ class Perceptron {
      */
     bool output(const std::vector<bool> &inputs);
     void update(const std::vector<bool> &inputs, const bool &target);
+    double loss();
     /**
      * @brief Prints the perceptron attributes
      */

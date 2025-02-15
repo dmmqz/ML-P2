@@ -16,6 +16,7 @@ int main() {
     std::cout << orGate.output({1, 0}) << std::endl;
     std::cout << orGate.output({0, 1}) << std::endl;
     std::cout << orGate.output({1, 1}) << std::endl;
+    std::cout << "MSE: " << orGate.loss() << std::endl;
 
     // NOT gate
     Perceptron notGate = Perceptron(1);
@@ -28,6 +29,7 @@ int main() {
     std::cout << "NOT gate:" << std::endl;
     std::cout << notGate.output({0}) << std::endl;
     std::cout << notGate.output({1}) << std::endl;
+    std::cout << "MSE: " << notGate.loss() << std::endl;
 
     return 0;
 }

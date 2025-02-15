@@ -19,6 +19,7 @@ bool Perceptron::output(const std::vector<bool> &inputs) {
 
 void Perceptron::update(const std::vector<bool> &inputs, const bool &target) {
     const double error = target - this->output(inputs);
+    this->errors.push_back(error);
 
     // Update bias (no input)
     this->bias += this->learning_rate * error;
@@ -27,6 +28,14 @@ void Perceptron::update(const std::vector<bool> &inputs, const bool &target) {
     for (int i = 0; i < inputs.size(); i++) {
         this->weights[i] += this->learning_rate * error * inputs[i];
     }
+}
+
+double Perceptron::loss() {
+    double sum = 0;
+    for (const double &error : this->errors) {
+        sum += error * error;
+    }
+    return sum / this->errors.size();
 }
 
 void Perceptron::__str__() {
