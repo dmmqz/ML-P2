@@ -11,3 +11,8 @@ add_executable(main
     main.cpp
     src/perceptron.cpp
 )
+
+add_executable(test
+    test/test.cpp
+    src/perceptron.cpp
+)
