@@ -5,4 +5,5 @@ OUTPUT_DIRECTORY = ./docs
 INPUT            = .
 RECURSIVE        = YES
 EXCLUDE          = ./test/include/catch.hpp
+EXCLUDE         += ./get_data.py
 GENERATE_LATEX   = NO

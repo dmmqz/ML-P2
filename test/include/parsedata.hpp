@@ -1,6 +1,6 @@
 /**
- * @file perceptron.hpp
- * @brief Define Perceptron class
+ * @file parsedata.hpp
+ * @brief Helper functions for data parsing
  * @author Dylan McGivern
  */
 #include <string>

@@ -19,6 +19,12 @@ TEST_CASE("Test AND-gate") {
     REQUIRE(!andGate.output({1, 0}));
     REQUIRE(!andGate.output({0, 1}));
     REQUIRE(andGate.output({1, 1}));
+    /* Final values:
+     * Bias: -1.2
+     * Weights:
+     * 1
+     * 1
+     */
 }
 
 // This test should fail

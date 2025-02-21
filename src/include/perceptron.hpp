@@ -11,8 +11,8 @@
  * @class Perceptron
  * @brief Perceptron with 1 or more inputs
  *
- * This class represents a Perceptron in a layer. This class takes weights and
- * bias as input. Once the class is initialized, the Perceptron should first get
+ * This class represents a Perceptron. This class takes weights and bias as
+ * input. Once the class is initialized, the Perceptron should first get
  * some training, using the `update` method. After it has been trained enough,
  * `output` can be called.
  */
@@ -25,7 +25,7 @@ class Perceptron {
 
   public:
     /**
-     * @brief Constructs a perceptron with weights and a bias
+     * @brief Constructs a perceptron a number of weights
      * @param n_weights Number of weights
      */
     Perceptron(const int &n_weights);
