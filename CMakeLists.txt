@@ -7,12 +7,10 @@ include_directories(
     src/include
 )
 
-add_executable(main
-    main.cpp
+add_executable(test
+    test/test.cpp
+    test/parsedata.cpp
     src/perceptron.cpp
 )
 
-add_executable(test
-    test/test.cpp
-    src/perceptron.cpp
-)
+target_compile_definitions(test PRIVATE PROJ_ROOT="${CMAKE_CURRENT_SOURCE_DIR}")

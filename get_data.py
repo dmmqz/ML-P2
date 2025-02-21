@@ -1,8 +1,10 @@
 from sklearn.datasets import load_iris
 import pandas as pd
+from pathlib import Path
 
 # import data
-df = pd.read_csv("Iris.csv")
+data_dir = Path(__file__).parent / "data"
+df = pd.read_csv(data_dir / "Iris.csv")
 
 # Make 2 datasets
 df1 = df[df["Species"] != "Iris-virginica"]
@@ -13,5 +15,5 @@ df2["Species"] = df2["Species"].replace({"Iris-virginica": 0, "Iris-versicolor":
 # Delete unneeded info and export
 cols = ["Id"]
 
-df1.drop(columns=cols).to_csv("test_data.csv", index=False, header=False)
-df2.drop(columns=cols).to_csv("test_data2.csv", index=False, header=False)
+df1.drop(columns=cols).to_csv(data_dir / "no_virginica.csv", index=False, header=False)
+df2.drop(columns=cols).to_csv(data_dir / "no_setosa.csv", index=False, header=False)

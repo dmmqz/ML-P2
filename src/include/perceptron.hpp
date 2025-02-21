@@ -33,8 +33,8 @@ class Perceptron {
      * @param inputs Inputs for this perceptron
      * @return bool: Output given the inputs
      */
-    bool output(const std::vector<bool> &inputs);
-    void update(const std::vector<bool> &inputs, const bool &target);
+    bool output(const std::vector<double> &inputs);
+    void update(const std::vector<double> &inputs, const bool &target);
     double loss();
     /**
      * @brief Prints the perceptron attributes
