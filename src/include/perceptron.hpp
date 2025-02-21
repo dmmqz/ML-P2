@@ -36,6 +36,7 @@ class Perceptron {
     bool output(const std::vector<double> &inputs);
     void update(const std::vector<double> &inputs, const bool &target);
     double loss();
+    void setWeights(std::vector<double> weights);
     /**
      * @brief Prints the perceptron attributes
      */

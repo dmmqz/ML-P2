@@ -37,6 +37,15 @@ double Perceptron::loss() {
     return sum / this->errors.size();
 }
 
+void Perceptron::setWeights(std::vector<double> newWeights) {
+    this->bias = newWeights[0];
+
+    // Skip i=0 because that is the bias
+    for (int i = 1; i < newWeights.size(); i++) {
+        this->weights[i - 1] = newWeights[i];
+    }
+}
+
 void Perceptron::__str__() {
     std::cout << "Bias: " << this->bias << std::endl;
     std::cout << "Weights:" << std::endl;

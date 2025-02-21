@@ -45,6 +45,8 @@ TEST_CASE("Test XOR-gate") {
 }
 
 TEST_CASE("Test Setosa vs. Versicolor") {
+    // Set seed with student number
+    std::srand(1866428);
     std::vector<std::vector<double>> data = parseData("no_virginica.csv");
 
     std::vector<std::vector<double>> inputs{};
@@ -58,6 +60,13 @@ TEST_CASE("Test Setosa vs. Versicolor") {
     }
 
     Perceptron p = Perceptron(4);
+
+    std::vector<double> randomWeights(5);
+    for (int i = 0; i < 5; i++) {
+        // Random weights from [-10, 10] with 2 decimals (for example: -4.94)
+        randomWeights[i] = (double)(std::rand() % 2000 - 1000) / 100;
+    }
+    p.setWeights(randomWeights);
 
     // epochs = 100
     for (int k = 0; k < 100; k++) {
@@ -95,6 +104,13 @@ TEST_CASE("Test Versicolor vs. Virginica") {
 
     Perceptron p = Perceptron(4);
 
+    std::vector<double> randomWeights(5);
+    for (int i = 0; i < 5; i++) {
+        // Random weights from [-10, 10] with 2 decimals (for example: -4.94)
+        randomWeights[i] = (double)(std::rand() % 2000 - 1000) / 100;
+    }
+    p.setWeights(randomWeights);
+
     // epochs = 100
     for (int k = 0; k < 100; k++) {
         for (int i = 0; i < targets.size(); i++) {
@@ -109,6 +125,7 @@ TEST_CASE("Test Versicolor vs. Virginica") {
 
     // Fails
     CHECK(outputs == targets);
+
     std::cout << "Versicolor vs. Virginica perceptron:" << std::endl;
     p.__str__();
 }

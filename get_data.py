@@ -1,4 +1,8 @@
-from sklearn.datasets import load_iris
+"""
+This file loads the Iris dataset and modifies it to the needs of this assignment. The output is
+two new files in the `data/` directory.
+"""
+
 import pandas as pd
 from pathlib import Path
 
