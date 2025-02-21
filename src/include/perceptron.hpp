@@ -11,9 +11,10 @@
  * @class Perceptron
  * @brief Perceptron with 1 or more inputs
  *
- * This class represents a perceptron in a layer. This class takes weights and
- * bias as input. Once the class is initialized, output can be called. The
- * amount of inputs must be as much or less than the amount of weights.
+ * This class represents a Perceptron in a layer. This class takes weights and
+ * bias as input. Once the class is initialized, the Perceptron should first get
+ * some training, using the `update` method. After it has been trained enough,
+ * `output` can be called.
  */
 class Perceptron {
   private:
@@ -33,12 +34,25 @@ class Perceptron {
      * @param inputs Inputs for this perceptron
      * @return bool: Output given the inputs
      */
-    bool output(const std::vector<double> &inputs);
+    bool output(const std::vector<double> &inputs) const;
+    /**
+     * @brief Updates the perceptron weights using a learning rule
+     * @param inputs Inputs to update with
+     * @param target Target that goes with the inputs
+     */
     void update(const std::vector<double> &inputs, const bool &target);
-    double loss();
-    void setWeights(std::vector<double> weights);
+    /**
+     * @brief Calculates the MSE of the perceptron
+     * @return double: Total MSE after updates
+     */
+    double loss() const;
+    /**
+     * @brief Sets bias and weights
+     * @param weights A list of all the weights to set
+     */
+    void setWeights(const std::vector<double> &weights);
     /**
      * @brief Prints the perceptron attributes
      */
-    void __str__();
+    void __str__() const;
 };

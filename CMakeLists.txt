@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(
     src/include
+    test/include
 )
 
 add_executable(test

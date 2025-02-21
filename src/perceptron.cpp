@@ -7,7 +7,7 @@ Perceptron::Perceptron(const int &n_weights) {
     this->weights = std::vector<double>(n_weights);
 }
 
-bool Perceptron::output(const std::vector<double> &inputs) {
+bool Perceptron::output(const std::vector<double> &inputs) const {
     double total_sum = 0;
     for (int i = 0; i < inputs.size(); i++) {
         total_sum += inputs[i] * this->weights[i];
@@ -29,7 +29,7 @@ void Perceptron::update(const std::vector<double> &inputs, const bool &target) {
     }
 }
 
-double Perceptron::loss() {
+double Perceptron::loss() const {
     double sum = 0;
     for (const double &error : this->errors) {
         sum += error * error;
@@ -37,7 +37,7 @@ double Perceptron::loss() {
     return sum / this->errors.size();
 }
 
-void Perceptron::setWeights(std::vector<double> newWeights) {
+void Perceptron::setWeights(const std::vector<double> &newWeights) {
     this->bias = newWeights[0];
 
     // Skip i=0 because that is the bias
@@ -46,7 +46,7 @@ void Perceptron::setWeights(std::vector<double> newWeights) {
     }
 }
 
-void Perceptron::__str__() {
+void Perceptron::__str__() const {
     std::cout << "Bias: " << this->bias << std::endl;
     std::cout << "Weights:" << std::endl;
     for (const double &weight : this->weights) {
